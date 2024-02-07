@@ -156,10 +156,10 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          file: ${{ matrix.dockerfile }}
+          file: ${{ env.base_directory }}/${{ matrix.dir }}/${{ matrix.dockerfile }}
           platforms: ${{ matrix.platforms }}
           push: true
-          context: ./${{ env.base_directory }}/${{ matrix.dir }}
+          context: ${{ env.base_directory }}/${{ matrix.dir }}
           tags: |
             ${{ steps.string.outputs.lowercase }}
 #            ghcr.io/${{ steps.string.outputs.lowercase }}
