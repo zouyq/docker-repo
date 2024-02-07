@@ -151,7 +151,7 @@ jobs:
         id: string
         uses: ASzc/change-string-case-action@v5
         with:
-          string: ${{ env.DOCKER_USERNAME }}/${{ matrix.name }}
+          string: ${{ secrets.DOCKER_USERNAME }}/${{ matrix.name }}
 
       - name: Build and push
         uses: docker/build-push-action@v5
