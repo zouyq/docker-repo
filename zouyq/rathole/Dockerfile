@@ -1,6 +1,6 @@
 FROM rust:alpine as builder
 
-RUN apk add --no-cache git musl-dev openssl-dev pkgconfig perl make gcc
+RUN apk add --no-cache git musl-dev openssl-dev libc-dev pkgconfig perl make gcc
 
 RUN git clone https://github.com/rapiz1/rathole.git
 WORKDIR rathole

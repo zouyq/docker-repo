@@ -5,7 +5,8 @@ RUN apk add git
 RUN git clone https://github.com/netbirdio/dashboard.git
 WORKDIR dashboard
 
-RUN npm install && npm run build
+RUN npm install
+RUN npm run build
 
 FROM alpine
 LABEL maintainer="zouyq <zyqcn@live.com>"
