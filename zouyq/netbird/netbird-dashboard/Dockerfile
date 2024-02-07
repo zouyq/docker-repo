@@ -19,7 +19,7 @@ COPY --from=builder /dashboard/docker/nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /dashboard/docker/init_react_envs.sh /usr/local/init_react_envs.sh
 COPY --from=builder /dashboard/docker/init_cert.sh /usr/local/init_cert.sh
 COPY --from=builder /dashboard/docker/supervisord.conf /etc/supervisord.conf
-COPY --from=builder /dashboard/build/ /usr/share/nginx/html/
+COPY --from=builder /dashboard/out/ /usr/share/nginx/html/
 
 RUN chmod +x /usr/local/init_react_envs.sh
 
