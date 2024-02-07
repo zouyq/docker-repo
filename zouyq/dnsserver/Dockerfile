@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine as builder
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine as builder
 
 RUN apk add git
 
@@ -10,7 +10,7 @@ RUN dotnet build TechnitiumLibrary/TechnitiumLibrary.Net/TechnitiumLibrary.Net.c
 
 RUN dotnet publish DnsServer/DnsServerApp/DnsServerApp.csproj -c Release
 
-FROM mcr.microsoft.com/dotnet/aspnet:7.0-alpine
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine
 LABEL maintainer="zouyq <zyqcn@live.com>"
 
 COPY --from=builder /DnsServer/DnsServerApp/bin/Release/publish /DnsServer
