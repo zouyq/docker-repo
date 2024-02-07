@@ -11,6 +11,7 @@ RUN dotnet build TechnitiumLibrary/TechnitiumLibrary.Net/TechnitiumLibrary.Net.c
 RUN dotnet publish DnsServer/DnsServerApp/DnsServerApp.csproj -c Release
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine
+
 LABEL maintainer="zouyq <zyqcn@live.com>"
 
 COPY --from=builder /DnsServer/DnsServerApp/bin/Release/publish /DnsServer
