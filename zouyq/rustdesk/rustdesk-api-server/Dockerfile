@@ -1,15 +1,11 @@
 FROM alpine as builder
+LABEL maintainer="zouyq <zyqcn@live.com>"
 
-RUN apk add git
+RUN apk add --no-cache git gcc musl-dev mariadb-connector-c-dev pkgconfig
 
 RUN git clone https://github.com/kingmo888/rustdesk-api-server.git
 
-FROM python:alpine
-
-LABEL maintainer="zouyq <zyqcn@live.com>"
-
-COPY --from=builder /rustdesk-api-server /rustdesk-api-server
-WORKDIR /rustdesk-api-server/
+WORKDIR rustdesk-api-server
 
 RUN pip install --no-cache-dir --disable-pip-version-check -r requirements.txt
 RUN cp -r db db_bak
