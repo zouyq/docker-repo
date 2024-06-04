@@ -13,8 +13,3 @@ LABEL maintainer="zouyq <zyqcn@live.com>"
 COPY --from=builder /go/dolt/go/dolt /usr/local/bin
 
 ENTRYPOINT ["dolt"]
-
-
-
-
-
