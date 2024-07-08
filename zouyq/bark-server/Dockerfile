@@ -1,11 +1,11 @@
-FROM golang:alpine as builder
+FROM golang:alpine AS builder
 
 RUN apk add git
 
 RUN git clone https://github.com/Finb/bark-server.git
 WORKDIR bark-server
 
-RUN go build -o bark-server
+RUN go mod tidy && go build -o bark-server
 
 FROM alpine
 LABEL maintainer="zouyq <zyqcn@live.com>"

@@ -1,4 +1,4 @@
-FROM node as frontend
+FROM node AS frontend
 
 RUN git clone https://github.com/haishanh/yacd.git
 WORKDIR /yacd
@@ -6,7 +6,7 @@ WORKDIR /yacd
 RUN npm -g install pnpm
 RUN pnpm install && pnpm build
 
-FROM rust as backend
+FROM rust AS backend
 RUN git clone https://github.com/Watfaq/clash-rs.git
 WORKDIR /clash-rs
 

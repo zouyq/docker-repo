@@ -1,4 +1,4 @@
-FROM golang:alpine as builder
+FROM golang:alpine AS builder
 
 RUN apk add git
 RUN git clone https://github.com/caddyserver/caddy.git

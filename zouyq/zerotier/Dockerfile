@@ -1,4 +1,4 @@
-FROM alpine as builder
+FROM alpine AS builder
 
 RUN apk add git alpine-sdk linux-headers openssl-dev
 

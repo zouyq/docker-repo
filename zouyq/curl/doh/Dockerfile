@@ -1,4 +1,4 @@
-FROM alpine as builder
+FROM alpine AS builder
 
 RUN apk add git make curl-dev libc-dev gcc
 

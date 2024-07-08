@@ -1,5 +1,5 @@
 # tailscale derper deploy on fly.io
-FROM golang:alpine as builder
+FROM golang:alpine AS builder
 
 RUN apk add git
 

@@ -1,4 +1,4 @@
-FROM alpine as builder
+FROM alpine AS builder
 
 RUN apk add --no-cache git build-base boost-dev openssl-dev icu-data-full
 
