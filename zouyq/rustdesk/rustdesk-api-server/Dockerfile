@@ -1,4 +1,4 @@
-FROM alpine AS builder
+FROM python:alpine AS builder
 LABEL maintainer="zouyq <zyqcn@live.com>"
 
 RUN apk add --no-cache git gcc musl-dev mariadb-connector-c-dev pkgconfig
