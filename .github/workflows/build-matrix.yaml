@@ -17,14 +17,6 @@ jobs:
           - name: rathole
             dir: rathole
             dockerfile: Dockerfile
-            platforms: linux/amd64
-          - name: clash-rs
-            dir: clash
-            dockerfile: clash-rs/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: derper:ip
-            dir: tailscale
-            dockerfile: derper/Dockerfile_ip
             platforms: linux/amd64,linux/arm64
           - name: derper:fly
             dir: tailscale
