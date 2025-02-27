@@ -140,14 +140,17 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Lower case with latest
+        id: string
         uses: ASzc/change-string-case-action@v6
         with:
           string: ${{ secrets.DOCKER_USERNAME }}/${{ matrix.name }}
 
       - name: Get current date
+        id: date
         run: echo "date=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
 
       - name: Lower case with date
+        id: date_string
         uses: ASzc/change-string-case-action@v6
         with:
           string: ${{ secrets.DOCKER_USERNAME }}/${{ matrix.name }}:${{ steps.date.outputs.date }}
@@ -161,6 +164,7 @@ jobs:
           context: ${{ env.base_directory }}/${{ matrix.dir }}
           tags: |
             ${{ steps.string.outputs.lowercase }}
+            ${{ steps.date_string.outputs.lowercase }}
 #            ghcr.io/${{ steps.string.outputs.lowercase }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
