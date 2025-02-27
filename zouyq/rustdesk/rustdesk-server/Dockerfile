@@ -4,6 +4,7 @@ RUN apk add git alpine-sdk
 
 RUN git clone https://github.com/rustdesk/rustdesk-server.git
 WORKDIR rustdesk-server
+RUN git submodule update --init --recursive
 
 RUN cargo build --release --jobs=$(nproc)
 

@@ -139,11 +139,21 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Lower case
+      - name: Lower case with latest
         id: string
         uses: ASzc/change-string-case-action@v6
         with:
           string: ${{ secrets.DOCKER_USERNAME }}/${{ matrix.name }}
+
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+
+      - name: Lower case with date
+        id: string
+        uses: ASzc/change-string-case-action@v6
+        with:
+          string: ${{ secrets.DOCKER_USERNAME }}/${{ matrix.name }}:${{ steps.date.outputs.date }}
 
       - name: Build and push
         uses: docker/build-push-action@v5
