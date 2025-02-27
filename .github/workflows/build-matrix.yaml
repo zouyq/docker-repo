@@ -102,7 +102,7 @@ jobs:
             dir: blocky
             dockerfile: Dockerfile
             platforms: linux/amd64,linux/arm64
-          - name: curl:doh
+          - name: curl_doh
             dir: curl
             dockerfile: doh/Dockerfile
             platforms: linux/amd64,linux/arm64
