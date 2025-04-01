@@ -2,7 +2,7 @@ name: build-matrix
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   schedule:
-    - cron: "0 0 * * 5"
+    - cron: "0 0 * * 1"  # 每周一 UTC 时间 00:00 执行
   workflow_dispatch:
 env:
   base_directory: zouyq
@@ -73,6 +73,14 @@ jobs:
           - name: rustdesk-api-server
             dir: rustdesk
             dockerfile: rustdesk-api-server/Dockerfile
+            platforms: linux/amd64,linux/arm64
+          - name: one-api
+            dir: one-api
+            dockerfile: one-api/Dockerfile
+            platforms: linux/amd64,linux/arm64
+          - name: new-api
+            dir: one-api
+            dockerfile: new-api/Dockerfile
             platforms: linux/amd64,linux/arm64
           - name: mosdns
             dir: mosdns

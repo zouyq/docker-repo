@@ -5,6 +5,8 @@ RUN apk add git alpine-sdk
 RUN git clone https://github.com/rustdesk/rustdesk-server.git
 WORKDIR rustdesk-server
 
+RUN rm -rf libs && git clone https://github.com/rustdesk/hbb_common.git libs/hbb_common
+
 RUN cargo build --release --jobs=$(nproc)
 
 FROM alpine
