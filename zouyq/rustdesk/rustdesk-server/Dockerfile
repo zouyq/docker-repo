@@ -1,6 +1,6 @@
 FROM rust:alpine AS builder
 
-RUN apk add git alpine-sdk
+RUN apk add git alpine-sdk clang llvm
 
 RUN git clone https://github.com/rustdesk/rustdesk-server.git
 WORKDIR rustdesk-server
