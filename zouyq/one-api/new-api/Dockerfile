@@ -4,7 +4,7 @@ RUN apk add git npm
 RUN git clone https://github.com/Calcium-Ion/new-api.git
 WORKDIR /go/new-api/web
 
-RUN npm install && npm run build
+RUN npm install --force && npm run build
 
 WORKDIR /go/new-api
 RUN go build -ldflags "-s -w -X 'one-api/common.Version=$(cat VERSION)' -extldflags '-static'" -o one-api
