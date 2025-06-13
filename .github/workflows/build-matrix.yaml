@@ -110,9 +110,13 @@ jobs:
             dir: blocky
             dockerfile: Dockerfile
             platforms: linux/amd64,linux/arm64
-          - name: curl_doh
-            dir: curl
+          - name: doh
+            dir: alpine
             dockerfile: doh/Dockerfile
+            platforms: linux/amd64,linux/arm64
+          - name: lrzsz
+            dir: alpine
+            dockerfile: lrzsz/Dockerfile
             platforms: linux/amd64,linux/arm64
     steps:
       - name: Checkout
