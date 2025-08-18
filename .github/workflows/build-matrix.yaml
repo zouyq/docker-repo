@@ -118,6 +118,10 @@ jobs:
             dir: alpine
             dockerfile: lrzsz/Dockerfile
             platforms: linux/amd64,linux/arm64
+          - name: wolfi
+            dir: wolfi
+            dockerfile: Dockerfile
+            platforms: linux/amd64,linux/arm64,
     steps:
       - name: Checkout
         uses: actions/checkout@v4
