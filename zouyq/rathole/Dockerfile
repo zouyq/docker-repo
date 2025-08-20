@@ -7,6 +7,8 @@ RUN apk add --no-cache git musl-dev openssl-dev openssl-libs-static pkgconfig pe
 RUN git clone https://github.com/rapiz1/rathole.git
 WORKDIR rathole
 
+ENV RUSTFLAGS="-C target-feature=-outline-atomics"
+
 # 根据目标平台设置 Rust target
 RUN case "${TARGETPLATFORM}" in \
     "linux/amd64") export RUST_TARGET="x86_64-unknown-linux-musl" ;; \
