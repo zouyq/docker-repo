@@ -1,20 +1,38 @@
-FROM alpine:latest as builder
+FROM alpine:latest AS builder
 
-RUN apk add build-base
+RUN apk add --no-cache \
+    build-base \
+    git \
+    autoconf \
+    automake
 
-RUN wget http://ohse.de/uwe/testing/lrzsz-0.12.21rc.tar.gz
-RUN tar -xf lrzsz-0.12.21rc.tar.gz
-WORKDIR lrzsz-0.12.21rc
+WORKDIR /build
 
-RUN sed -i 's/ac_cv_prog_cc_works=no/ac_cv_prog_cc_works=yes/g' configure
-RUN ./configure CFLAGS="-std=gnu99 -D_GNU_SOURCE" --disable-nls
+# 使用维护的 fork
+RUN git clone --depth 1 https://github.com/UweOhse/lrzsz.git || \
+    git clone --depth 1 https://gitee.com/mirrors/lrzsz.git
 
-RUN sed -i '1i #include <stdlib.h>' lib/long-options.c
-RUN find . -name "*.c" -exec sed -i '1i #include <string.h>\n#include <stdio.h>' {} \;
+WORKDIR /build/lrzsz
+
+# 如果有 autogen.sh
+RUN if [ -f autogen.sh ]; then ./autogen.sh; fi
+
+# 配置
+RUN ./configure \
+    CFLAGS="-std=gnu99 -D_GNU_SOURCE" \
+    --prefix=/usr/local \
+    --disable-nls
+
+# 编译
 RUN make -j$(nproc) && make install
 
-FROM alpine
+FROM alpine:latest
+
 LABEL maintainer="zouyq <zyqcn@live.com>"
 
-COPY --from=builder /usr/local/bin /usr/local/bin/
+COPY --from=builder /usr/local/bin/* /usr/local/bin/
 
+RUN ln -sf /usr/local/bin/lrz /usr/local/bin/rz && \
+    ln -sf /usr/local/bin/lsz /usr/local/bin/sz
+
+CMD ["/bin/sh"]
