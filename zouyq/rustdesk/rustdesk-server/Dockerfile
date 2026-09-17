@@ -1,11 +1,10 @@
 FROM rust:alpine AS builder
 
-RUN apk add git alpine-sdk clang llvm  musl-dev openssl-dev openssl-libs-static pkgconfig
+RUN apk add git alpine-sdk clang llvm musl-dev openssl-dev openssl-libs-static pkgconfig libsodium-dev
 
-RUN git clone https://github.com/rustdesk/rustdesk-server.git
+# Use the pinned hbb_common submodule; replacing it with latest breaks ed25519/signature versions
+RUN git clone --depth 1 --recurse-submodules --shallow-submodules https://github.com/rustdesk/rustdesk-server.git
 WORKDIR rustdesk-server
-
-RUN rm -rf libs && git clone https://github.com/rustdesk/hbb_common.git libs/hbb_common
 
 RUN cargo build --release --jobs=$(nproc)
 
