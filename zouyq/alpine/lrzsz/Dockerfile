@@ -1,29 +1,20 @@
 FROM alpine:latest AS builder
 
-RUN apk add --no-cache \
-    build-base \
-    git \
-    autoconf \
-    automake
+RUN apk add --no-cache build-base
 
 WORKDIR /build
 
-# 使用维护的 fork
-RUN git clone --depth 1 https://github.com/UweOhse/lrzsz.git || \
-    git clone --depth 1 https://gitee.com/mirrors/lrzsz.git
+# Upstream git tree is WIP and has no pregenerated configure; use the release tarball.
+ADD https://ohse.de/uwe/testing/lrzsz-0.12.21rc.tar.gz /build/lrzsz.tar.gz
+RUN tar -xzf lrzsz.tar.gz && mv lrzsz-0.12.21rc lrzsz
 
 WORKDIR /build/lrzsz
 
-# 如果有 autogen.sh
-RUN if [ -f autogen.sh ]; then ./autogen.sh; fi
-
-# 配置
-RUN ./configure \
-    CFLAGS="-std=gnu99 -D_GNU_SOURCE" \
+# GCC 14+ treats implicit int/function decl as errors; this old C code needs them allowed
+RUN CFLAGS="-std=gnu99 -D_GNU_SOURCE -Wno-implicit-int -Wno-implicit-function-declaration -Wno-error" ./configure \
     --prefix=/usr/local \
     --disable-nls
 
-# 编译
 RUN make -j$(nproc) && make install
 
 FROM alpine:latest

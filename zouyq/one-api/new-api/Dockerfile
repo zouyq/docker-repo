@@ -1,28 +1,24 @@
-FROM golang:alpine AS builder
+FROM oven/bun:1.4-alpine AS frontend-builder
 
-RUN apk add git npm
-RUN git clone https://github.com/Calcium-Ion/new-api.git
+RUN apk add --no-cache git
+RUN git clone --depth 1 --recurse-submodules https://github.com/zyqfork/new-api.git /new-api
 
-# 前端构建使用 bun（避免 semi.css 问题）
-FROM oven/bun:latest AS frontend-builder
-WORKDIR /build
-COPY --from=builder /go/new-api/web .
-COPY --from=builder /go/new-api/VERSION .
-RUN bun install
-RUN DISABLE_ESLINT_PLUGIN='true' VITE_REACT_APP_VERSION=$(cat VERSION) bun run build
+WORKDIR /new-api/web
+RUN bun install --frozen-lockfile
+RUN DISABLE_ESLINT_PLUGIN='true' VITE_REACT_APP_VERSION=$(cat /new-api/VERSION) bun run build
 
-# 后端构建
-FROM golang:alpine AS backend-builder
-RUN apk add git
-COPY --from=builder /go/new-api /go/new-api
-WORKDIR /go/new-api
-COPY --from=frontend-builder /build/dist ./web/dist
-RUN go build -ldflags "-s -w -X 'new-api/common.Version=$(cat VERSION)' -extldflags '-static'" -o new-api
+FROM golang:1.26-alpine AS backend-builder
+
+RUN apk add --no-cache git
+COPY --from=frontend-builder /new-api /new-api
+WORKDIR /new-api
+
+ENV CGO_ENABLED=0
+RUN go build -ldflags "-s -w -X 'github.com/QuantumNous/new-api/common.Version=$(cat VERSION)'" -o /new-api-bin
 
 FROM alpine
-
 LABEL maintainer="zouyq <zyqcn@live.com>"
 
-COPY --from=backend-builder /go/new-api/new-api /usr/local/bin
+COPY --from=backend-builder /new-api-bin /usr/local/bin/new-api
 
-ENTRYPOINT ["one-api"]
+ENTRYPOINT ["new-api"]

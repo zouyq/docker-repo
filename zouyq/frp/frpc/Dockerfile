@@ -1,15 +1,27 @@
-FROM golang:alpine AS builder
+FROM node:22-alpine AS web-builder
 
-RUN apk add git
+RUN apk add --no-cache git
+RUN git clone https://github.com/fatedier/frp.git /frp
 
-RUN git clone https://github.com/fatedier/frp.git
-WORKDIR frp
+# npm workspaces: install from web/ so shared/frpc deps resolve
+WORKDIR /frp/web
+RUN npm install
 
-RUN go build -o frpc ./cmd/frpc
+WORKDIR /frp/web/frpc
+RUN npm run build
+
+FROM golang:1.25-alpine AS go-builder
+
+COPY --from=web-builder /frp /frp
+WORKDIR /frp
+
+RUN CGO_ENABLED=0 go build -trimpath -ldflags "-s -w" -tags frpc -o bin/frpc ./cmd/frpc
 
 FROM alpine
 LABEL maintainer="zouyq <zyqcn@live.com>"
 
-COPY --from=builder /go/frp/frpc /usr/local/bin
+RUN apk add --no-cache tzdata
+
+COPY --from=go-builder /frp/bin/frpc /usr/local/bin/frpc
 
 ENTRYPOINT ["frpc"]
