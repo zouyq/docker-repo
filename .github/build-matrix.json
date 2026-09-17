@@ -1,0 +1,210 @@
+[
+  {
+    "name": "rathole",
+    "dir": "rathole",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/rapiz1/rathole.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "derper",
+    "dir": "tailscale",
+    "dockerfile": "derper/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/tailscale/tailscale.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "tailscale",
+    "dir": "tailscale",
+    "dockerfile": "tailscale/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/tailscale/tailscale.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "bark",
+    "dir": "bark-server",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/Finb/bark-server.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "caddy",
+    "dir": "caddy",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/caddyserver/caddy.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "frpc",
+    "dir": "frp",
+    "dockerfile": "frpc/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/fatedier/frp.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "frps",
+    "dir": "frp",
+    "dockerfile": "frps/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/fatedier/frp.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "headscale",
+    "dir": "headscale/headscale",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/juanfont/headscale.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "helloworld",
+    "dir": "helloworld",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "",
+    "upstream_ref": ""
+  },
+  {
+    "name": "netbird",
+    "dir": "netbird",
+    "dockerfile": "netbird/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/netbirdio/netbird.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "netbird-dashboard",
+    "dir": "netbird",
+    "dockerfile": "netbird-dashboard/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/netbirdio/dashboard.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "netbird-mgmt",
+    "dir": "netbird",
+    "dockerfile": "netbird-mgmt/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/netbirdio/netbird.git",
+    "upstream_ref": "v0.78.2"
+  },
+  {
+    "name": "netbird-signal",
+    "dir": "netbird",
+    "dockerfile": "netbird-signal/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/netbirdio/netbird.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "rustdesk-server",
+    "dir": "rustdesk",
+    "dockerfile": "rustdesk-server/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/rustdesk/rustdesk-server.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "rustdesk-api-server",
+    "dir": "rustdesk",
+    "dockerfile": "rustdesk-api-server/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/kingmo888/rustdesk-api-server.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "one-api",
+    "dir": "one-api",
+    "dockerfile": "one-api/Dockerfile",
+    "platforms": "linux/amd64",
+    "upstream": "https://github.com/songquanpeng/one-api.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "new-api",
+    "dir": "one-api",
+    "dockerfile": "new-api/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/zyqfork/new-api.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "mosdns",
+    "dir": "mosdns",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/IrineSistiana/mosdns.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "vlmcsd",
+    "dir": "vlmcsd",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/Wind4/vlmcsd.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "zerotier",
+    "dir": "zerotier",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/zerotier/ZeroTierOne.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "dnsserver",
+    "dir": "dnsserver",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64",
+    "upstream": "https://github.com/TechnitiumSoftware/DnsServer.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "coredns",
+    "dir": "coredns",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/coredns/coredns.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "smartdns",
+    "dir": "smartdns",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/pymumu/smartdns.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "blocky",
+    "dir": "blocky",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "https://github.com/0xERR0R/blocky.git",
+    "upstream_ref": "HEAD"
+  },
+  {
+    "name": "wolfi",
+    "dir": "wolfi",
+    "dockerfile": "Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "",
+    "upstream_ref": ""
+  },
+  {
+    "name": "lrzsz",
+    "dir": "alpine",
+    "dockerfile": "lrzsz/Dockerfile",
+    "platforms": "linux/amd64,linux/arm64",
+    "upstream": "",
+    "upstream_ref": ""
+  }
+]

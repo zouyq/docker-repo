@@ -1,123 +1,55 @@
 name: build-matrix
+
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   schedule:
-    - cron: "0 0 * * 1"  # 每周一 UTC 时间 00:00 执行
+    - cron: "0 0 * * 1"  # 每周一 UTC 00:00
   workflow_dispatch:
+    inputs:
+      force:
+        description: "忽略上游 diff，强制重建全部镜像"
+        type: boolean
+        default: false
+      only:
+        description: "仅重建指定镜像（逗号分隔，例如 frps,frpc）"
+        type: string
+        required: false
+        default: ""
+
+concurrency:
+  group: build-matrix
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 env:
   base_directory: zouyq
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.filter.outputs.matrix }}
+      has_work: ${{ steps.filter.outputs.has_work }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Filter matrix by upstream changes
+        id: filter
+        env:
+          FORCE: ${{ inputs.force == true }}
+          ONLY: ${{ inputs.only }}
+        run: python3 .github/scripts/prepare_matrix.py
+
   docker:
+    needs: prepare
+    if: needs.prepare.outputs.has_work == 'true'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - name: rathole
-            dir: rathole
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: derper
-            dir: tailscale
-            dockerfile: derper/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: tailscale
-            dir: tailscale
-            dockerfile: tailscale/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: bark
-            dir: bark-server
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: caddy
-            dir: caddy
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: frpc
-            dir: frp
-            dockerfile: frpc/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: frps
-            dir: frp
-            dockerfile: frps/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: headscale
-            dir: headscale/headscale
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: helloworld
-            dir: helloworld
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: netbird
-            dir: netbird
-            dockerfile: netbird/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: netbird-dashboard
-            dir: netbird
-            dockerfile: netbird-dashboard/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: netbird-mgmt
-            dir: netbird
-            dockerfile: netbird-mgmt/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: netbird-signal
-            dir: netbird
-            dockerfile: netbird-signal/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: rustdesk-server
-            dir: rustdesk
-            dockerfile: rustdesk-server/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: rustdesk-api-server
-            dir: rustdesk
-            dockerfile: rustdesk-api-server/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: one-api
-            dir: one-api
-            dockerfile: one-api/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: new-api
-            dir: one-api
-            dockerfile: new-api/Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: mosdns
-            dir: mosdns
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: vlmcsd
-            dir: vlmcsd
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: zerotier
-            dir: zerotier
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: dnsserver
-            dir: dnsserver
-            dockerfile: Dockerfile
-            platforms: linux/amd64
-          - name: coredns
-            dir: coredns
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: smartdns
-            dir: smartdns
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: blocky
-            dir: blocky
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: wolfi
-            dir: wolfi
-            dockerfile: Dockerfile
-            platforms: linux/amd64,linux/arm64
-          - name: lrzsz
-            dir: alpine
-            dockerfile: lrzsz/Dockerfile
-            platforms: linux/amd64,linux/arm64
+        include: ${{ fromJson(needs.prepare.outputs.matrix) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -130,26 +62,11 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Cache Docker layers
-        uses: actions/cache@v4
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Lower case with latest
         id: string
@@ -159,7 +76,7 @@ jobs:
 
       - name: Get current date
         id: date
-        run: echo "date=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+        run: echo "date=$(date +'%Y%m%d')" >> "$GITHUB_OUTPUT"
 
       - name: Lower case with date
         id: date_string
@@ -168,20 +85,119 @@ jobs:
           string: ${{ secrets.DOCKER_USERNAME }}/${{ matrix.name }}:${{ steps.date.outputs.date }}
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        id: build
+        uses: docker/build-push-action@v6
         with:
+          context: ${{ env.base_directory }}/${{ matrix.dir }}
           file: ${{ env.base_directory }}/${{ matrix.dir }}/${{ matrix.dockerfile }}
           platforms: ${{ matrix.platforms }}
           push: true
-          context: ${{ env.base_directory }}/${{ matrix.dir }}
           tags: |
             ${{ steps.string.outputs.lowercase }}
             ${{ steps.date_string.outputs.lowercase }}
-#            ghcr.io/${{ steps.string.outputs.lowercase }}
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+          cache-from: type=gha,scope=${{ matrix.name }}
+          cache-to: type=gha,scope=${{ matrix.name }},mode=max
 
-      - name: Move cache
+      - name: Record success result
+        if: success()
+        env:
+          IMAGE: ${{ steps.string.outputs.lowercase }}
+          NAME: ${{ matrix.name }}
+          PLATFORMS: ${{ matrix.platforms }}
+          UPSTREAM: ${{ matrix.upstream }}
+          UPSTREAM_SHA: ${{ matrix.upstream_sha }}
+          DOCKERFILE_SHA: ${{ matrix.dockerfile_sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+          mkdir -p /tmp/build-results
+          python3 - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          rec = {
+              "name": os.environ["NAME"],
+              "image": os.environ["IMAGE"],
+              "upstream": os.environ.get("UPSTREAM") or "",
+              "upstream_sha": os.environ.get("UPSTREAM_SHA") or "",
+              "dockerfile_sha": os.environ.get("DOCKERFILE_SHA") or "",
+              "platforms": os.environ.get("PLATFORMS") or "",
+              "status": "success",
+              "built_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "run_url": os.environ.get("RUN_URL") or "",
+          }
+          path = f"/tmp/build-results/{os.environ['NAME']}.json"
+          with open(path, "w", encoding="utf-8") as f:
+              json.dump(rec, f, ensure_ascii=False)
+          PY
+
+      - name: Record failure result
+        if: failure()
+        env:
+          IMAGE: ${{ steps.string.outputs.lowercase }}
+          NAME: ${{ matrix.name }}
+          PLATFORMS: ${{ matrix.platforms }}
+          UPSTREAM: ${{ matrix.upstream }}
+          UPSTREAM_SHA: ${{ matrix.upstream_sha }}
+          DOCKERFILE_SHA: ${{ matrix.dockerfile_sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          mkdir -p /tmp/build-results
+          python3 - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          rec = {
+              "name": os.environ["NAME"],
+              "image": os.environ["IMAGE"],
+              "upstream": os.environ.get("UPSTREAM") or "",
+              "upstream_sha": os.environ.get("UPSTREAM_SHA") or "",
+              "dockerfile_sha": os.environ.get("DOCKERFILE_SHA") or "",
+              "platforms": os.environ.get("PLATFORMS") or "",
+              "status": "failure",
+              "built_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "run_url": os.environ.get("RUN_URL") or "",
+              "error": "docker build/push failed",
+          }
+          path = f"/tmp/build-results/{os.environ['NAME']}.json"
+          with open(path, "w", encoding="utf-8") as f:
+              json.dump(rec, f, ensure_ascii=False)
+          PY
+
+      - name: Upload result artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: result-${{ matrix.name }}
+          path: /tmp/build-results/${{ matrix.name }}.json
+          if-no-files-found: ignore
+          retention-days: 7
+
+  update-docs:
+    needs: [prepare, docker]
+    if: always() && needs.prepare.outputs.has_work == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download build results
+        uses: actions/download-artifact@v4
+        with:
+          path: /tmp/build-results
+          pattern: result-*
+          merge-multiple: true
+
+      - name: Update versions.json and README.md
+        env:
+          RESULTS_DIR: /tmp/build-results
+        run: python3 .github/scripts/update_docs.py
+
+      - name: Commit docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add build-versions.json README.md
+          if git diff --staged --quiet; then
+            echo "No doc changes"
+            exit 0
+          fi
+          git commit -m "chore: update image build log [skip ci]"
+          git push
