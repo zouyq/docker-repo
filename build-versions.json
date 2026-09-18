@@ -38,11 +38,11 @@
     },
     "derper": {
       "upstream": "https://github.com/tailscale/tailscale.git",
-      "upstream_sha": "62f31306376ca860ef7b68c55a4d8874aabc4f26",
+      "upstream_sha": "28836381da54dad94a72d109d4896e5fa9e88de9",
       "dockerfile_sha": "bbe9eb5d3a9b20cdb08ef9d1fe8ef93e43fca7cdbb56ded81140dfd00259c5ba",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-09-17T10:18:28Z",
+      "built_at": "2026-09-18T01:32:14Z",
       "image": "zouyq/derper"
     },
     "dnsserver": {
@@ -137,11 +137,11 @@
     },
     "new-api": {
       "upstream": "https://github.com/zyqfork/new-api.git",
-      "upstream_sha": "69a50029819a26c53e6babd276d49cfe2f8880ad",
+      "upstream_sha": "7209b6db95ef33bfb0f6344ebf61c1fec9af780c",
       "dockerfile_sha": "6b0b07087a389dc72a76d5a337d7f916a109b94d391e2d590b86737d4f7f21dc",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-09-17T10:33:49Z",
+      "built_at": "2026-09-18T01:49:41Z",
       "image": "zouyq/new-api"
     },
     "one-api": {
@@ -191,11 +191,11 @@
     },
     "tailscale": {
       "upstream": "https://github.com/tailscale/tailscale.git",
-      "upstream_sha": "62f31306376ca860ef7b68c55a4d8874aabc4f26",
+      "upstream_sha": "28836381da54dad94a72d109d4896e5fa9e88de9",
       "dockerfile_sha": "999a1d95ecc46b70e4ec9f778a8b1e8ab8f3f8c9b4f63a0c4a6f4890e58532a6",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-09-17T10:49:10Z",
+      "built_at": "2026-09-18T01:24:02Z",
       "image": "zouyq/tailscale"
     },
     "vlmcsd": {
@@ -224,9 +224,66 @@
       "status": "success",
       "built_at": "2026-09-17T10:30:51Z",
       "image": "zouyq/zerotier"
+    },
+    "frpc": {
+      "upstream": "https://github.com/fatedier/frp.git",
+      "upstream_sha": "d20a232996007dfe6ab425abc0a39a3ae9a0889b",
+      "dockerfile_sha": "9df1dbedc1d8f62c27825ce03a7b72a02a3d9fbdf2a656b824417e9888a0a3ee",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-09-18T01:32:06Z",
+      "image": "zouyq/frpc"
     }
   },
   "history": [
+    {
+      "name": "new-api",
+      "image": "zouyq/new-api",
+      "upstream": "https://github.com/zyqfork/new-api.git",
+      "upstream_sha": "7209b6db95ef33bfb0f6344ebf61c1fec9af780c",
+      "dockerfile_sha": "6b0b07087a389dc72a76d5a337d7f916a109b94d391e2d590b86737d4f7f21dc",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-09-18T01:49:41Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/35295075160",
+      "error": ""
+    },
+    {
+      "name": "derper",
+      "image": "zouyq/derper",
+      "upstream": "https://github.com/tailscale/tailscale.git",
+      "upstream_sha": "28836381da54dad94a72d109d4896e5fa9e88de9",
+      "dockerfile_sha": "bbe9eb5d3a9b20cdb08ef9d1fe8ef93e43fca7cdbb56ded81140dfd00259c5ba",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-09-18T01:32:14Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/35295075160",
+      "error": ""
+    },
+    {
+      "name": "frpc",
+      "image": "zouyq/frpc",
+      "upstream": "https://github.com/fatedier/frp.git",
+      "upstream_sha": "d20a232996007dfe6ab425abc0a39a3ae9a0889b",
+      "dockerfile_sha": "9df1dbedc1d8f62c27825ce03a7b72a02a3d9fbdf2a656b824417e9888a0a3ee",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-09-18T01:32:06Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/35295075160",
+      "error": ""
+    },
+    {
+      "name": "tailscale",
+      "image": "zouyq/tailscale",
+      "upstream": "https://github.com/tailscale/tailscale.git",
+      "upstream_sha": "28836381da54dad94a72d109d4896e5fa9e88de9",
+      "dockerfile_sha": "999a1d95ecc46b70e4ec9f778a8b1e8ab8f3f8c9b4f63a0c4a6f4890e58532a6",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-09-18T01:24:02Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/35295075160",
+      "error": ""
+    },
     {
       "name": "rustdesk-server",
       "image": "zouyq/rustdesk-server",
