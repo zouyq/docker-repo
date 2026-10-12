@@ -4,35 +4,35 @@
 
 规则：若上游仓库 commit（或无上游时的 Dockerfile 内容）与上次成功构建一致，则跳过本次构建。
 
-最近更新：2026-10-05 03:44:50 UTC
+最近更新：2026-10-12 04:56:52 UTC
 
 ## 当前状态
 
 | 镜像 | 上游 | 上游 Commit | 上次构建 (UTC) | 状态 |
 |------|------|-------------|----------------|------|
-| `bark` | Finb/bark-server | [`5ea5486d8e`](https://github.com/Finb/bark-server/commit/5ea5486d8e4fe2fff0b4b170a89b2457e808c9c3) | 2026-09-28T02:42:08Z | success |
-| `blocky` | 0xERR0R/blocky | [`3b7faa85fe`](https://github.com/0xERR0R/blocky/commit/3b7faa85fee243b9a49c84e7e8d57b8c2c79ff1f) | 2026-10-05T03:12:01Z | success |
-| `caddy` | caddyserver/caddy | [`8507b63cf0`](https://github.com/caddyserver/caddy/commit/8507b63cf03a7a0d90b2084f3aafbcc1d8e60a7b) | 2026-10-05T03:22:24Z | success |
-| `coredns` | coredns/coredns | [`49ceafa24f`](https://github.com/coredns/coredns/commit/49ceafa24ff8d98e962032bd394afeb7a5d49547) | 2026-10-05T03:20:30Z | success |
-| `derper` | tailscale/tailscale | [`9128778b65`](https://github.com/tailscale/tailscale/commit/9128778b6515f32e13d92e7380044fe025f9b08e) | 2026-10-05T03:11:13Z | success |
-| `dnsserver` | TechnitiumSoftware/DnsServer | [`70495af5b3`](https://github.com/TechnitiumSoftware/DnsServer/commit/70495af5b3caddb1244c2608514987b1622b1594) | 2026-10-05T03:02:53Z | success |
+| `bark` | Finb/bark-server | [`640deaa151`](https://github.com/Finb/bark-server/commit/640deaa151ddf79193202927b35ca2f14f65ee1d) | 2026-10-12T03:24:49Z | success |
+| `blocky` | 0xERR0R/blocky | [`ca450f8789`](https://github.com/0xERR0R/blocky/commit/ca450f8789fc5ce397c03472ff63039f4c75aaa7) | 2026-10-12T03:30:37Z | success |
+| `caddy` | caddyserver/caddy | [`d4165a4eb1`](https://github.com/caddyserver/caddy/commit/d4165a4eb1fdb129e8ce8390099021a00239ecf7) | 2026-10-12T03:32:58Z | success |
+| `coredns` | coredns/coredns | [`123829d3b3`](https://github.com/coredns/coredns/commit/123829d3b30b7482bd49cc4a6228237fc2a2c51d) | 2026-10-12T03:51:05Z | success |
+| `derper` | tailscale/tailscale | [`3bb8a906c2`](https://github.com/tailscale/tailscale/commit/3bb8a906c27738c7904ef301c9539da763181f85) | 2026-10-12T03:27:21Z | success |
+| `dnsserver` | TechnitiumSoftware/DnsServer | [`8d30bab46e`](https://github.com/TechnitiumSoftware/DnsServer/commit/8d30bab46eea70f6d4f6772f25113a929bd97f14) | 2026-10-12T03:18:43Z | success |
 | `frpc` | fatedier/frp | [`d20a232996`](https://github.com/fatedier/frp/commit/d20a232996007dfe6ab425abc0a39a3ae9a0889b) | 2026-09-18T01:32:06Z | success |
 | `frps` | fatedier/frp | [`d20a232996`](https://github.com/fatedier/frp/commit/d20a232996007dfe6ab425abc0a39a3ae9a0889b) | 2026-09-17T10:20:02Z | success |
-| `headscale` | juanfont/headscale | [`eeaac680be`](https://github.com/juanfont/headscale/commit/eeaac680bef26585c8cc1569f949e26d0d6aba80) | 2026-10-05T03:01:52Z | success |
+| `headscale` | juanfont/headscale | [`a8d6f5be81`](https://github.com/juanfont/headscale/commit/a8d6f5be81e578a078001b908e41611ec03ce69e) | 2026-10-12T03:45:33Z | success |
 | `helloworld` | - | - | 2026-09-17T10:09:41Z | success |
 | `lrzsz` | - | - | 2026-09-17T10:11:41Z | success |
 | `mosdns` | IrineSistiana/mosdns | [`9cfb7ce985`](https://github.com/IrineSistiana/mosdns/commit/9cfb7ce985599c087cb7ccfb1531d0c0f4021242) | 2026-09-17T10:18:16Z | success |
-| `netbird` | netbirdio/netbird | [`88b26bb74f`](https://github.com/netbirdio/netbird/commit/88b26bb74f50f12f25ad7b5db8eddb171d91a1e5) | 2026-10-05T03:20:26Z | success |
-| `netbird-dashboard` | netbirdio/dashboard | [`5aebab8adc`](https://github.com/netbirdio/dashboard/commit/5aebab8adc4872619f2872f470f93489fef3bbd6) | 2026-10-05T03:01:43Z | success |
+| `netbird` | netbirdio/netbird | [`67c2041fb5`](https://github.com/netbirdio/netbird/commit/67c2041fb5534c19d7b2320617cfc3aaab8e7d3d) | 2026-10-12T03:37:47Z | success |
+| `netbird-dashboard` | netbirdio/dashboard | [`d6241304d3`](https://github.com/netbirdio/dashboard/commit/d6241304d35a5592a6a072b89e4b335fcb9cc091) | 2026-10-12T03:30:17Z | success |
 | `netbird-mgmt` | netbirdio/netbird | [`300b669501`](https://github.com/netbirdio/netbird/commit/300b6695012158bdede367738a0389a25d83cf04) | 2026-09-17T10:42:56Z | success |
-| `netbird-signal` | netbirdio/netbird | [`88b26bb74f`](https://github.com/netbirdio/netbird/commit/88b26bb74f50f12f25ad7b5db8eddb171d91a1e5) | 2026-10-05T03:08:34Z | success |
+| `netbird-signal` | netbirdio/netbird | [`67c2041fb5`](https://github.com/netbirdio/netbird/commit/67c2041fb5534c19d7b2320617cfc3aaab8e7d3d) | 2026-10-12T03:24:23Z | success |
 | `new-api` | zyqfork/new-api | [`c71eefbcd1`](https://github.com/zyqfork/new-api/commit/c71eefbcd194ea3caca8476e399ae580b275470c) | 2026-10-05T03:18:09Z | success |
 | `one-api` | songquanpeng/one-api | [`8df4a2670b`](https://github.com/songquanpeng/one-api/commit/8df4a2670b98266bd287c698243fff327d9748cf) | 2026-09-17T10:12:33Z | success |
 | `rathole` | rapiz1/rathole | [`a292f7ed54`](https://github.com/rapiz1/rathole/commit/a292f7ed5402f840415fc6a53827da2f34337856) | 2026-09-17T10:54:35Z | success |
 | `rustdesk-api-server` | kingmo888/rustdesk-api-server | [`71c6f290d1`](https://github.com/kingmo888/rustdesk-api-server/commit/71c6f290d1d8a662513c01a8de6134238ecf3ba9) | 2026-09-17T10:11:41Z | success |
-| `rustdesk-server` | rustdesk/rustdesk-server | [`a7736be5e4`](https://github.com/rustdesk/rustdesk-server/commit/a7736be5e40f85bfc141120dce587e836e5d4b80) | 2026-09-17T12:26:39Z | success |
+| `rustdesk-server` | rustdesk/rustdesk-server | [`873230e35a`](https://github.com/rustdesk/rustdesk-server/commit/873230e35a8805de7fd057e7eb763c46f7a174ef) | 2026-10-12T04:56:25Z | success |
 | `smartdns` | pymumu/smartdns | [`dfc9ef4bd9`](https://github.com/pymumu/smartdns/commit/dfc9ef4bd947891178924c06070fbccc3ea370ba) | 2026-09-17T10:14:18Z | success |
-| `tailscale` | tailscale/tailscale | [`9128778b65`](https://github.com/tailscale/tailscale/commit/9128778b6515f32e13d92e7380044fe025f9b08e) | 2026-10-05T03:44:30Z | success |
+| `tailscale` | tailscale/tailscale | [`3bb8a906c2`](https://github.com/tailscale/tailscale/commit/3bb8a906c27738c7904ef301c9539da763181f85) | 2026-10-12T03:58:02Z | success |
 | `vlmcsd` | Wind4/vlmcsd | [`70e03572b2`](https://github.com/Wind4/vlmcsd/commit/70e03572b254688b8c3557f898e7ebd765d29ae1) | 2026-09-17T10:14:20Z | success |
 | `wolfi` | - | - | 2026-09-17T10:09:38Z | success |
 | `zerotier` | zerotier/ZeroTierOne | [`899352e384`](https://github.com/zerotier/ZeroTierOne/commit/899352e38405968516bb12a770f0ac02f6058fa8) | 2026-09-17T10:30:51Z | success |
@@ -41,6 +41,20 @@
 
 | 构建时间 (UTC) | 镜像 | 拉取地址 | 上游 Commit | 平台 | 状态 | Workflow |
 |----------------|------|----------|-------------|------|------|----------|
+| 2026-10-12T04:56:25Z | `rustdesk-server` | `zouyq/rustdesk-server` | [`873230e35a`](https://github.com/rustdesk/rustdesk-server/commit/873230e35a8805de7fd057e7eb763c46f7a174ef) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:58:02Z | `tailscale` | `zouyq/tailscale` | [`3bb8a906c2`](https://github.com/tailscale/tailscale/commit/3bb8a906c27738c7904ef301c9539da763181f85) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:51:05Z | `coredns` | `zouyq/coredns` | [`123829d3b3`](https://github.com/coredns/coredns/commit/123829d3b30b7482bd49cc4a6228237fc2a2c51d) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:45:33Z | `headscale` | `zouyq/headscale` | [`a8d6f5be81`](https://github.com/juanfont/headscale/commit/a8d6f5be81e578a078001b908e41611ec03ce69e) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:37:47Z | `netbird` | `zouyq/netbird` | [`67c2041fb5`](https://github.com/netbirdio/netbird/commit/67c2041fb5534c19d7b2320617cfc3aaab8e7d3d) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:32:58Z | `caddy` | `zouyq/caddy` | [`d4165a4eb1`](https://github.com/caddyserver/caddy/commit/d4165a4eb1fdb129e8ce8390099021a00239ecf7) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:30:37Z | `blocky` | `zouyq/blocky` | [`ca450f8789`](https://github.com/0xERR0R/blocky/commit/ca450f8789fc5ce397c03472ff63039f4c75aaa7) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:30:17Z | `netbird-dashboard` | `zouyq/netbird-dashboard` | [`d6241304d3`](https://github.com/netbirdio/dashboard/commit/d6241304d35a5592a6a072b89e4b335fcb9cc091) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:27:21Z | `derper` | `zouyq/derper` | [`3bb8a906c2`](https://github.com/tailscale/tailscale/commit/3bb8a906c27738c7904ef301c9539da763181f85) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:24:49Z | `bark` | `zouyq/bark` | [`640deaa151`](https://github.com/Finb/bark-server/commit/640deaa151ddf79193202927b35ca2f14f65ee1d) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:24:23Z | `netbird-signal` | `zouyq/netbird-signal` | [`67c2041fb5`](https://github.com/netbirdio/netbird/commit/67c2041fb5534c19d7b2320617cfc3aaab8e7d3d) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:18:43Z | `dnsserver` | `zouyq/dnsserver` | [`8d30bab46e`](https://github.com/TechnitiumSoftware/DnsServer/commit/8d30bab46eea70f6d4f6772f25113a929bd97f14) | linux/amd64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:18:00Z | `frpc` | `zouyq/frpc` | [`2542d11a62`](https://github.com/fatedier/frp/commit/2542d11a6201c0f2bbe3b1d93031fc1e83201056) | linux/amd64,linux/arm64 | failure | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
+| 2026-10-12T03:17:53Z | `frps` | `zouyq/frps` | [`2542d11a62`](https://github.com/fatedier/frp/commit/2542d11a6201c0f2bbe3b1d93031fc1e83201056) | linux/amd64,linux/arm64 | failure | [运行](https://github.com/zouyq/docker-repo/actions/runs/38199109182) |
 | 2026-10-05T03:44:30Z | `tailscale` | `zouyq/tailscale` | [`9128778b65`](https://github.com/tailscale/tailscale/commit/9128778b6515f32e13d92e7380044fe025f9b08e) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/37257675180) |
 | 2026-10-05T03:22:24Z | `caddy` | `zouyq/caddy` | [`8507b63cf0`](https://github.com/caddyserver/caddy/commit/8507b63cf03a7a0d90b2084f3aafbcc1d8e60a7b) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/37257675180) |
 | 2026-10-05T03:20:30Z | `coredns` | `zouyq/coredns` | [`49ceafa24f`](https://github.com/coredns/coredns/commit/49ceafa24ff8d98e962032bd394afeb7a5d49547) | linux/amd64,linux/arm64 | success | [运行](https://github.com/zouyq/docker-repo/actions/runs/37257675180) |
