@@ -11,47 +11,47 @@
     },
     "blocky": {
       "upstream": "https://github.com/0xERR0R/blocky.git",
-      "upstream_sha": "ca450f8789fc5ce397c03472ff63039f4c75aaa7",
+      "upstream_sha": "ef95d592b323a06ad95ce10daeb53b534a8a8e79",
       "dockerfile_sha": "887b08e28bfc372db3a129217b32a5cf81b5ee79f71da9fe3cab288643551223",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-10-12T03:30:37Z",
+      "built_at": "2026-10-19T02:23:45Z",
       "image": "zouyq/blocky"
     },
     "caddy": {
       "upstream": "https://github.com/caddyserver/caddy.git",
-      "upstream_sha": "d4165a4eb1fdb129e8ce8390099021a00239ecf7",
+      "upstream_sha": "719db53e946181dd10a9aae36721c3251f7f8dc1",
       "dockerfile_sha": "17bfb1b8b85e8bfc2fa6da5d4fbd6bd53fe6a9d5a1b51d9d36dea3f256bb2df0",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-10-12T03:32:58Z",
+      "built_at": "2026-10-19T02:23:47Z",
       "image": "zouyq/caddy"
     },
     "coredns": {
       "upstream": "https://github.com/coredns/coredns.git",
-      "upstream_sha": "123829d3b30b7482bd49cc4a6228237fc2a2c51d",
+      "upstream_sha": "486ceaddd877af22466c8ebefca59403705dc365",
       "dockerfile_sha": "54c11aa516a65298a377eb28e84c773e34069b45b61e4c28c1a5352f2f7d6a66",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-10-12T03:51:05Z",
+      "built_at": "2026-10-19T02:23:50Z",
       "image": "zouyq/coredns"
     },
     "derper": {
       "upstream": "https://github.com/tailscale/tailscale.git",
-      "upstream_sha": "3bb8a906c27738c7904ef301c9539da763181f85",
+      "upstream_sha": "e3c3ef18a51a2d70c902c28f465939888464fb86",
       "dockerfile_sha": "bbe9eb5d3a9b20cdb08ef9d1fe8ef93e43fca7cdbb56ded81140dfd00259c5ba",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-10-12T03:27:21Z",
+      "built_at": "2026-10-19T02:29:34Z",
       "image": "zouyq/derper"
     },
     "dnsserver": {
       "upstream": "https://github.com/TechnitiumSoftware/DnsServer.git",
-      "upstream_sha": "8d30bab46eea70f6d4f6772f25113a929bd97f14",
+      "upstream_sha": "0dd592aad21eced4221a9a46204cb1a299972ca0",
       "dockerfile_sha": "c20fbae8702d0afde9a17ef2cbbf31832b5172a15eb4a2f6fd9de13997237549",
       "platforms": "linux/amd64",
       "status": "success",
-      "built_at": "2026-10-12T03:18:43Z",
+      "built_at": "2026-10-19T02:25:02Z",
       "image": "zouyq/dnsserver"
     },
     "frps": {
@@ -65,11 +65,11 @@
     },
     "headscale": {
       "upstream": "https://github.com/juanfont/headscale.git",
-      "upstream_sha": "a8d6f5be81e578a078001b908e41611ec03ce69e",
+      "upstream_sha": "691ef56329854e952efed5e3c81ea600f46a58b5",
       "dockerfile_sha": "14a56d4280fa90c2a060d903df2f873898298b9931a96cc8bdec365f980e321c",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-10-12T03:45:33Z",
+      "built_at": "2026-10-19T02:23:50Z",
       "image": "zouyq/headscale"
     },
     "helloworld": {
@@ -101,11 +101,11 @@
     },
     "netbird-dashboard": {
       "upstream": "https://github.com/netbirdio/dashboard.git",
-      "upstream_sha": "d6241304d35a5592a6a072b89e4b335fcb9cc091",
+      "upstream_sha": "54052a650f1c203a103a658f4a02c2c5e83b17c2",
       "dockerfile_sha": "d667d5973330923ddd75d8e2f17ad862e2f78b35e23acfa394fddda046541dfe",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-10-12T03:30:17Z",
+      "built_at": "2026-10-19T02:42:52Z",
       "image": "zouyq/netbird-dashboard"
     },
     "netbird-mgmt": {
@@ -119,20 +119,20 @@
     },
     "netbird-signal": {
       "upstream": "https://github.com/netbirdio/netbird.git",
-      "upstream_sha": "67c2041fb5534c19d7b2320617cfc3aaab8e7d3d",
+      "upstream_sha": "cf017119711184a0661062a0c8ac2043e4e8d411",
       "dockerfile_sha": "16a3f598767ac30bbdeb66c41368b02287a27f5096f178674cc8760d8ae94ea8",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-10-12T03:24:23Z",
+      "built_at": "2026-10-19T02:36:08Z",
       "image": "zouyq/netbird-signal"
     },
     "netbird": {
       "upstream": "https://github.com/netbirdio/netbird.git",
-      "upstream_sha": "67c2041fb5534c19d7b2320617cfc3aaab8e7d3d",
+      "upstream_sha": "cf017119711184a0661062a0c8ac2043e4e8d411",
       "dockerfile_sha": "5957f61c299adb99b4ba2822eaf12ba6d8017fe39fe8a359b7a0a1497568c426",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-10-12T03:37:47Z",
+      "built_at": "2026-10-19T02:23:49Z",
       "image": "zouyq/netbird"
     },
     "new-api": {
@@ -191,11 +191,11 @@
     },
     "tailscale": {
       "upstream": "https://github.com/tailscale/tailscale.git",
-      "upstream_sha": "3bb8a906c27738c7904ef301c9539da763181f85",
+      "upstream_sha": "e3c3ef18a51a2d70c902c28f465939888464fb86",
       "dockerfile_sha": "999a1d95ecc46b70e4ec9f778a8b1e8ab8f3f8c9b4f63a0c4a6f4890e58532a6",
       "platforms": "linux/amd64,linux/arm64",
       "status": "success",
-      "built_at": "2026-10-12T03:58:02Z",
+      "built_at": "2026-10-19T02:23:39Z",
       "image": "zouyq/tailscale"
     },
     "vlmcsd": {
@@ -236,6 +236,150 @@
     }
   },
   "history": [
+    {
+      "name": "netbird-dashboard",
+      "image": "zouyq/netbird-dashboard",
+      "upstream": "https://github.com/netbirdio/dashboard.git",
+      "upstream_sha": "54052a650f1c203a103a658f4a02c2c5e83b17c2",
+      "dockerfile_sha": "d667d5973330923ddd75d8e2f17ad862e2f78b35e23acfa394fddda046541dfe",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-10-19T02:42:52Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": ""
+    },
+    {
+      "name": "netbird-signal",
+      "image": "zouyq/netbird-signal",
+      "upstream": "https://github.com/netbirdio/netbird.git",
+      "upstream_sha": "cf017119711184a0661062a0c8ac2043e4e8d411",
+      "dockerfile_sha": "16a3f598767ac30bbdeb66c41368b02287a27f5096f178674cc8760d8ae94ea8",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-10-19T02:36:08Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": ""
+    },
+    {
+      "name": "derper",
+      "image": "zouyq/derper",
+      "upstream": "https://github.com/tailscale/tailscale.git",
+      "upstream_sha": "e3c3ef18a51a2d70c902c28f465939888464fb86",
+      "dockerfile_sha": "bbe9eb5d3a9b20cdb08ef9d1fe8ef93e43fca7cdbb56ded81140dfd00259c5ba",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-10-19T02:29:34Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": ""
+    },
+    {
+      "name": "dnsserver",
+      "image": "zouyq/dnsserver",
+      "upstream": "https://github.com/TechnitiumSoftware/DnsServer.git",
+      "upstream_sha": "0dd592aad21eced4221a9a46204cb1a299972ca0",
+      "dockerfile_sha": "c20fbae8702d0afde9a17ef2cbbf31832b5172a15eb4a2f6fd9de13997237549",
+      "platforms": "linux/amd64",
+      "status": "success",
+      "built_at": "2026-10-19T02:25:02Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": ""
+    },
+    {
+      "name": "frpc",
+      "image": "zouyq/frpc",
+      "upstream": "https://github.com/fatedier/frp.git",
+      "upstream_sha": "26742060b1e55a64509f4d0bfb073470f81f1af3",
+      "dockerfile_sha": "9df1dbedc1d8f62c27825ce03a7b72a02a3d9fbdf2a656b824417e9888a0a3ee",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "failure",
+      "built_at": "2026-10-19T02:24:28Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": "docker build/push failed"
+    },
+    {
+      "name": "frps",
+      "image": "zouyq/frps",
+      "upstream": "https://github.com/fatedier/frp.git",
+      "upstream_sha": "26742060b1e55a64509f4d0bfb073470f81f1af3",
+      "dockerfile_sha": "8d76a318cf3ad4820ca764efb4ac40e329ef5503bf4fb8928fc12d999c398d4e",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "failure",
+      "built_at": "2026-10-19T02:24:22Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": "docker build/push failed"
+    },
+    {
+      "name": "coredns",
+      "image": "zouyq/coredns",
+      "upstream": "https://github.com/coredns/coredns.git",
+      "upstream_sha": "486ceaddd877af22466c8ebefca59403705dc365",
+      "dockerfile_sha": "54c11aa516a65298a377eb28e84c773e34069b45b61e4c28c1a5352f2f7d6a66",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-10-19T02:23:50Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": ""
+    },
+    {
+      "name": "headscale",
+      "image": "zouyq/headscale",
+      "upstream": "https://github.com/juanfont/headscale.git",
+      "upstream_sha": "691ef56329854e952efed5e3c81ea600f46a58b5",
+      "dockerfile_sha": "14a56d4280fa90c2a060d903df2f873898298b9931a96cc8bdec365f980e321c",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-10-19T02:23:50Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": ""
+    },
+    {
+      "name": "netbird",
+      "image": "zouyq/netbird",
+      "upstream": "https://github.com/netbirdio/netbird.git",
+      "upstream_sha": "cf017119711184a0661062a0c8ac2043e4e8d411",
+      "dockerfile_sha": "5957f61c299adb99b4ba2822eaf12ba6d8017fe39fe8a359b7a0a1497568c426",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-10-19T02:23:49Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": ""
+    },
+    {
+      "name": "caddy",
+      "image": "zouyq/caddy",
+      "upstream": "https://github.com/caddyserver/caddy.git",
+      "upstream_sha": "719db53e946181dd10a9aae36721c3251f7f8dc1",
+      "dockerfile_sha": "17bfb1b8b85e8bfc2fa6da5d4fbd6bd53fe6a9d5a1b51d9d36dea3f256bb2df0",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-10-19T02:23:47Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": ""
+    },
+    {
+      "name": "blocky",
+      "image": "zouyq/blocky",
+      "upstream": "https://github.com/0xERR0R/blocky.git",
+      "upstream_sha": "ef95d592b323a06ad95ce10daeb53b534a8a8e79",
+      "dockerfile_sha": "887b08e28bfc372db3a129217b32a5cf81b5ee79f71da9fe3cab288643551223",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-10-19T02:23:45Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": ""
+    },
+    {
+      "name": "tailscale",
+      "image": "zouyq/tailscale",
+      "upstream": "https://github.com/tailscale/tailscale.git",
+      "upstream_sha": "e3c3ef18a51a2d70c902c28f465939888464fb86",
+      "dockerfile_sha": "999a1d95ecc46b70e4ec9f778a8b1e8ab8f3f8c9b4f63a0c4a6f4890e58532a6",
+      "platforms": "linux/amd64,linux/arm64",
+      "status": "success",
+      "built_at": "2026-10-19T02:23:39Z",
+      "run_url": "https://github.com/zouyq/docker-repo/actions/runs/39189694860",
+      "error": ""
+    },
     {
       "name": "rustdesk-server",
       "image": "zouyq/rustdesk-server",
